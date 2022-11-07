@@ -1,66 +1,141 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
-
 body {
-  margin : 0;
-  background-color: rgb(157, 192, 244);
-  font-family: 'Bebas Neue', cursive;
+  margin: 0;
+  padding: 0;
+  background-image: url("./img/bg.jpg");
+  background-size: cover;
+  height: 100vh;
 }
-
-#logo {
-  text-transform: uppercase;
-  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  /* border: 2px solid red; */
-  color: white;
-  margin-left: 10px;
-  text-shadow: 1px 7px 7px black;
+* {
+  margin: 0;
+  padding: 0;
 }
-
 #navbar {
-  height: max-content;
+  background-color: white;
+  box-sizing: border-box;
+  height: 50px;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
-  background: linear-gradient( to bottom , rgb(87 255 114),rgb(255 255 255));
-  box-shadow: 0px 1px 27px black;
 }
 
 .navbar-logo {
-  width: 20%;
-  /* background-color: gold; */
+  width: 25%;
+  justify-content: flex-end;
+  align-items: center;
+}
+#logo {
+  width: 100%;
+  height: 100%;
+  justify-content: flex-start;
   display: flex;
   align-items: center;
 }
 .navbar-item {
-  background-color: rgb(198, 15, 15);
-  width: 30%;
+  width: 75%;
+
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  align-items: center;
 }
-.navbar-item ul {
-  box-sizing : border-box;
+.navbar-item > ul {
+  display: flex;
+  list-style: none;
+  height: 100%;
+  width: 30%;
+}
+
+.menu-item {
+  box-sizing: border-box;
+  /* border: 2px black solid; */
+  height: 100%;
   width: 100%;
   display: flex;
-  border: 2px solid black;
-  list-style: none;
-  background-color: white;
-  padding: 0px 20px;
-  margin: 0;
-  height: 100%;
   align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-
+  justify-content: center;
 }
-.navbar-item ul li {
-  display: flex;
-  margin: 0;
- padding: 0;
- border: 2px solid yellow;
-  align-content: flex-start;
-}
-.navbar-item ul li a {
+.menu-item a {
   text-decoration: none;
 }
-.navbar-item ul li:hover {
+.menu-item:hover {
+  background: linear-gradient(
+    to bottom,
+    rgb(242 255 251),
+    rgb(49 155 252 / 35%)
+  );
+}
+
+/* sign-up body ---------------------------- */
+
+#signup-container {
+  border: 2px solid black;
+  box-shadow: 3px 2px 4px gray;
+  height: 500px;
+  width: 50%;
+  margin: 0px auto;
+  margin-top: 5%;
+  padding: 2px 2px;
+  display: block;
   background-color: white;
+}
+
+.signup-body-upper {
+  background-color: bisque;
+  display: flex;
+  height: 80%;
+}
+
+.signup-form {
+  width: 50%;
+  background-color: aquamarine;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-form > form {
+    box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  line-height: auto;
+  background-color: blanchedalmond;
+  height: 100%;
+  width: 100%;
+  padding : 25px;
+}
+.signup-img {
+  width: 50%;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-body-lower {
+  background-color: pink;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#signup-img {
+  width: 200px;
+}
+.other-methods-signup {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: aqua;
+    
+}
+.other-methods-signup > a {
+    border: 2px solid black;
+    background-color: aliceblue;
+    border-radius: 25px;
+    height: 80%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
