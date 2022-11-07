@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Roboto&family=Silkscreen&display=swap');
+
+/* CSS Reset*/
+body {
+    color: white;
+    margin: 0px;
+    padding: 0px;
+    background: url("../img/bg.jpg");
+    font-family: 'Baloo Bhai 2', cursive;
+}
+
+.left {
+    display: inline-block;
+    /* border: 2px solid red; */
+    position: absolute;
+    left: 60px;
+    top: 20px;
+    text-align: center;
+}
+
+.left img {
+    width: 38px;
+    padding: 8px;
+    filter: invert(100%);
+
+}
+
+.left div {
+    text-align: center;
+    line-height: 19px;
+    font-size: 15px;
+}
+
+.mid {
+    display: block;
+    width: 35%;
+    margin: 20px auto;
+    /* border: 2px solid green; */
+
+}
+
+.right {
+    position: absolute;
+    right: 34px;
+    top: 28px;
+    display: inline-block;
+    /* border: 2px solid yellow; */
+
+}
+
+.navbar {
+    display: inline-block;
+}
+
+.navbar li {
+    display: inline-block;
+    font-size: 14px;
+}
+
+.navbar li a {
+    color: white;
+    text-decoration: none;
+    padding: 34px 23px;
+}
+
+.navbar li a:hover,
+.navbar li a:active {
+    text-decoration: underline;
+    color: grey;
+}
+
+.btn {
+    margin: 0px 9px;
+    ;
+    color: white;
+    background-color: black;
+    padding: 4px 14px;
+    border: 2px solid grey;
+    border-radius: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    font-family: 'Baloo Bhai 2', cursive;
+
+}
+
+.btn:hover {
+    background-color: rgb(46, 46, 46);
+}
+
+.container {
+    border: 2px solid white;
+    margin: 106px 80px;
+    padding: 23px;
+    width: 33%;
+    border-radius: 20px;
+}
+
+.from-group input {
+    text-align: center;
+    display: block;
+    width: 400px;
+    padding: 1px;
+    border: 2px solid black;
+    margin: 10px auto;
+    font-size: 19px;
+    border-radius: 12px;
+    font-family: 'Baloo Bhai 2', cursive;
+
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 23px;
+}
+
+.container button {
+    display: block;
+    width: 80%;
+    margin: 15px auto;
+}
+
+div.gender {
+    border: 2px red solid;
+    background-color: rgb(165, 156, 156);
+    color: black;
+    border-radius: 20px;
+    width: 80%;
+    margin: 10px auto;
+    text-align: center;
+    line-height: 0;
+}
+div.gender label {
+    display: inline;
+    width: 15px;
+    height: 15px;
+}
+div.gender input {
+    display: inline;
+    width: 15px;
+    height: 15px;
+}
+div.gender input:hover {
+    cursor: pointer;
+}

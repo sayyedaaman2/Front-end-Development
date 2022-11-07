@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Club</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<!-- <style>
+    @import url('https://fonts.googleapis.com/css2?family=Acme&family=Roboto&family=Silkscreen&display=swap');
+
+    /* CSS Reset*/
+    body {
+        color: white;
+        margin: 0px;
+        padding: 0px;
+        background: url("./img/bg.jpg");
+        font-family: 'Baloo Bhai 2', cursive;
+    }
+
+    .left {
+        display: inline-block;
+        /* border: 2px solid red; */
+        position: absolute;
+        left: 60px;
+        top: 20px;
+        text-align: center;
+    }
+
+    .left img {
+        width: 38px;
+        padding: 8px;
+        filter: invert(100%);
+
+    }
+
+    .left div {
+        text-align: center;
+        line-height: 19px;
+        font-size: 15px;
+    }
+
+    .mid {
+        display: block;
+        width: 35%;
+        margin: 20px auto;
+        /* border: 2px solid green; */
+
+    }
+
+    .right {
+        position: absolute;
+        right: 34px;
+        top: 28px;
+        display: inline-block;
+        /* border: 2px solid yellow; */
+
+    }
+
+    .navbar {
+        display: inline-block;
+    }
+
+    .navbar li {
+        display: inline-block;
+        font-size: 14px;
+    }
+
+    .navbar li a {
+        color: white;
+        text-decoration: none;
+        padding: 34px 23px;
+    }
+
+    .navbar li a:hover,
+    .navbar li a:active {
+        text-decoration: underline;
+        color: grey;
+    }
+
+    .btn {
+        margin: 0px 9px;
+        ;
+        color: white;
+        background-color: black;
+        padding: 4px 14px;
+        border: 2px solid grey;
+        border-radius: 10px;
+        font-size: 14px;
+        cursor: pointer;
+        font-family: 'Baloo Bhai 2', cursive;
+
+    }
+
+    .btn:hover {
+        background-color: rgb(46, 46, 46);
+    }
+
+    .container {
+        border: 2px solid white;
+        margin: 106px 80px;
+        padding: 23px;
+        width: 33%;
+        border-radius: 20px;
+    }
+
+    .from-group input {
+        text-align: center;
+        display: block;
+        width: 400px;
+        padding: 1px;
+        border: 2px solid black;
+        margin: 10px auto;
+        font-size: 19px;
+        border-radius: 12px;
+        font-family: 'Baloo Bhai 2', cursive;
+
+    }
+
+    .container h1 {
+        text-align: center;
+        font-size: 23px;
+    }
+
+    .container button {
+        display: block;
+        width: 80%;
+        margin: 15px auto;
+    }
+
+    div.gender {
+        border: 2px red solid;
+        background-color: rgb(165, 156, 156);
+        color: black;
+        border-radius: 20px;
+        width: 80%;
+        margin: 10px auto;
+        text-align: center;
+        line-height: 0;
+    }
+    div.gender label {
+        display: inline;
+        width: 15px;
+        height: 15px;
+    }
+    div.gender input {
+        display: inline;
+        width: 15px;
+        height: 15px;
+    }
+    div.gender input:hover {
+        cursor: pointer;
+    }
+
+</style> -->
+
+<body>
+    <header class="header">
+        <!-- left box for logo -->
+        <div class="left">
+            <img src="img/logo.png" alt="">
+            <div>Fitness Club</div>
+        </div>
+        <!-- mid box for navbar -->
+        <div class="mid">
+            <ul class="navbar">
+                <li><a href="#" class="active"> Home</a></li>
+                <li><a href="#"> About Us</a></li>
+                <li> <a href="#">Fitness Calculator</a></li>
+                <li> <a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+        <!-- right box for buttons -->
+        <div class="right">
+            <button class="btn">Call Us Now</button>
+            <button class="btn">Email Us</button>
+        </div>
+    </header>
+    <div class="container">
+        <h1>Join the best gym of Delhi Now</h1>
+        <form>
+            <div class="from-group">
+                <input type="text" name="" autocomplete="off" placeholder="Enter your Name">
+            </div>
+            <div class="from-group">
+                <input type="number" name="" autocomplete="off" placeholder="Enter your Age">
+            </div>
+            <div class="from-group">
+                <div class="gender">
+                    <p>What is Your gender</p><br>
+                    <label for="male">Male</label>
+                    <input type="radio" name="gender" value="male">
+                    
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" value="female">
+                </div>
+            </div>
+            <div class="from-group">
+                <input type="email" name="" autocomplete="off" placeholder="Enter your Email">
+            </div>
+            <div class="from-group">
+                <input type="text" name="" autocomplete="off" placeholder="Enter your Phone Number">
+            </div>
+        </form>
+        <button class="btn">Submit</button>
+
+    </div>
+</body>
+
+</html>

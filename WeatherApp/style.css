@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Acme&family=Roboto&family=Silkscreen&display=swap');
+body {
+    margin: 0px;
+    padding : 0px;
+    font-family: 'Roboto', sans-serif;
+    background-color: #222;
+    color : #fff;
+    width: 100%;
+    height: 100%;
+    position: relative;
+    line-height: 20px;
+}
+.card {
+    margin: 20px;
+    padding :20px;
+    text-align: center;
+    position: relative;
+    height: 50%;
+    border:red solid 1px;
+    background:linear-gradient(to right, rgb(104, 152, 248), rgb(15, 255, 131));
+    box-shadow:4px 2px 9px rgb(137, 128, 128) inset;
+    border-radius: 20px;
+}
+.card-border {
+    position: relative;
+    border: 2px white solid;
+    padding:  10px;
+    background-color:linear-gradient(to right, rgb(104, 152, 248), rgb(15, 255, 131));;
+    box-shadow:4px 2px 5px rgb(7, 3, 3) inset;
+    border-radius: 20px;
+}
+
+img {
+    position: relative;
+    right: 100px;
+}
+
+.row div h1 {
+    font-size: 40px;
+
+}
+
+form {
+    padding : 40px;
+}
+#serach {
+    height: 35px;
+    width: 150px;
+    text-align: center;
+    border-radius: 20px;
+    border : 2px solid grey;
+    box-shadow: 2px 3px 5px black;
+}
+h1,h2,h3,h4{
+    color: rgb(255, 255, 255);
+}

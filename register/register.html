@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My First website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1> Register</h1>
+        <nav>
+            <ul>
+                <li> <a href="home.html">Home</a></li>
+                <li> <a href="about.html">About</a></li>
+
+            </ul>
+        </nav>
+    </header>
+    
+
+    <span></span>
+    <div>
+        <form method="POST">
+            Username: <input type="text" name="username" required><br>
+            Email : <input type="email" name="email" required><br>
+            Password: <input type="password" min="5" name="password" required><br>
+            Gender :<br>
+            <input type="radio" name="gender" value="Male"> Male <br>
+            <input type="radio" name="gender" value="Female"> Female <br>
+            <input type="radio" name="gender" value="Other"> Other <br>
+            Birthday: <input type="date" name="birthday"> <br>
+            <input type="checkbox" name="cat">Cat <br>
+            <input type="checkbox" name="dogs">Dogs <br>
+            Cars : <br>
+            <select name="cars">
+                <option value="volve" name="volve">Volve</option>
+                <option value="Audi" name="audi">Audi</option>
+
+            </select>
+            <input type="submit" value="Register">
+            <input type="reset">
+        </form>
+    </div>
+    <footer>
+        <p>Website made with love</p>
+    </footer>
+</body>
+
+</html>
+<!-- 
+http://127.0.0.1:5500/register.html
+?
+username=test
+&
+email=test1%40gmail.com
+&
+password=1234
+&
+gender=on
+&
+birthday=2022-10-09
+&
+cat=on -->
