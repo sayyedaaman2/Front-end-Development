@@ -69,7 +69,8 @@ body {
 #signup-container {
   border: 2px solid black;
   box-shadow: 3px 2px 4px gray;
-  height: 500px;
+  min-height: 400px;
+  height: 400px;
   width: 50%;
   margin: 0px auto;
   margin-top: 5%;
@@ -92,27 +93,56 @@ body {
   justify-content: center;
 }
 .signup-form > form {
-    box-sizing: border-box;
+  box-sizing: content-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   line-height: auto;
-  background-color: blanchedalmond;
+  background-color: rgba(68, 240, 243, 0.473);
   height: 100%;
   width: 100%;
-  padding : 25px;
+  padding : 0;
+}
+.form-item{
+  display: flex;
+  /* border: 3px solid black; */
+  width: 80%;
+  height: 10%;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-item > label {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  width: 30%;
+  box-shadow: 3px 3px 4px black;
+  align-items: center;
+
+}
+.form-item > input {
+  height: 100%;
+  width: 60%;
+  border-radius: 25px;
+  box-shadow: 3px 3px 4px black;
+  padding : 0px 10px;
+}
+.submit-btn {
+  height: 35px;
+  width: 80%;
 }
 .signup-img {
   width: 50%;
-  background-color: blue;
+  background-color: rgb(220, 113, 113);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .signup-body-lower {
   background-color: pink;
-  height: 20%;
+  height: 10%;
   display: flex;
   align-items: center;
   justify-content: center;
