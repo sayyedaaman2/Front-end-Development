@@ -1,38 +1,131 @@
-import React from 'react'
-import Logo from '../img/form.png'
-const SignUp = () => {
+
+import { useState } from 'react';
+import ProfilePic from '../img/profile-icon.png'
+
+function SignUp() {
+
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [userId, setUserId] = useState("");
+    const [password, setPassword] = useState("");
+
+    const [nameErr, setNameErr] = useState(false);
+    const [emailErr, setEmailErr] = useState(false);
+    const [userIdErr, setUserIdErr] = useState(false);
+    const [passwordErr, setPasswordErr] = useState(false);
+
+    function nameHandler(e) {
+        let name = e.target.value;
+        var validNameRegex = new RegExp(/^[a-zA-Z\s]*$/g);
+        if(validNameRegex.test(name)){
+            // console.log("valid");
+            setNameErr(false);
+        }else{
+            setNameErr(true);
+            // console.log("Invalid");
+
+        }
+        setName(name);
+
+    }
+
+    function emailHandler(e) {
+        let email = e.target.value;
+        var validEmailRegex = new RegExp(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/);
+        if (validEmailRegex.test(email)) {
+            setEmailErr(false);
+        } else {
+            setEmailErr(true);
+        }
+        setEmail(email);
+    }
+
+    function userIdHandler(e) {
+        let userId = e.target.value;
+        var validUserIdRegex = new RegExp(/^[a-zA-Z][^\s-]+$/);
+        if(validUserIdRegex.test(userId)){
+            setUserIdErr(false);
+        }else{
+            setUserIdErr(true);
+        }
+        setUserId(userId);
+    }
+
+    function passwordHandler(e) {
+        let password = e.target.value;
+        var validPasswordRegex = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
+        //S.Aaman$1234
+        if(validPasswordRegex.test(password)){
+            setPasswordErr(false);
+        }else{
+            setPasswordErr(true);
+        }
+        setPassword(password);
+    }
+
+
+    function SubmitData(e) {
+        e.preventDefault();
+
+        if(!nameErr && !userIdErr && !emailErr && !passwordErr){
+            //Post request write here
+            alert("Successfuly Register")
+        }else{
+            alert("Fill the information")
+        }
+    }
     return (
         <>
-            <div id='signup-container'>
-                <div className="signup-body-upper">
-                    <div className="signup-form">
-                        <form>
-                            <div className='form-item'>
-                                <label>Name : </label>
-                                <input type="text" name="name" placeholder="Enter Your Name" />
-                            </div>
-                            <div className='form-item'>
-                                <label>Email : </label>
-                                <input type="text" name="email" placeholder="Enter Your Email" />
-                            </div><div className='form-item'>
-                                <label>UserId : </label>
-                                <input type="text" name="userId" placeholder="Enter Your UserId" />
-                            </div><div className='form-item'>
-                                <label>Password : </label>
-                                <input type="text" name="password" placeholder="Enter Your Password" />
-                            </div>
-                            <button type="submit" name="submit" className="submit-btn">Submit</button>
-                        </form>
-                    </div>
-                    <div className="signup-img">
-                        <img id="signup-img" src={Logo} />
-                    </div>
+            <div id="signUp-container">
 
+                <div id="signUp-pic-section">
+                    <img id="signUp-logo" src={ProfilePic} />
                 </div>
-                <div className="signup-body-lower">
-                    <div className="other-methods-signup">
-                        <a href="#"> I have alread Account</a>
-                        <a href="#">SignUp as Engnieer</a>
+
+                <div id="signUp-form-section">
+                    <form id="signUp-form" onSubmit={SubmitData}>
+                        <table>
+                            <tbody>
+                                <tr className="row">
+                                    <td className="label">
+                                        Name
+                                    </td>
+                                    <td className="input-field" maxLength="10">
+                                        <input type="text" name="name" placeholder='Enter Your Name' autoComplete='off' onChange={nameHandler} />
+                                    </td>
+                                </tr>
+                                <tr className="row">
+                                    <td className="label">
+                                        Email 
+                                    </td>
+                                    <td className="input-field" maxLength="20">
+                                        <input type="text" name="email" placeholder='Enter Your Email' autoComplete='off' onChange={emailHandler} />
+                                    </td>
+                                </tr><tr className="row">
+                                    <td className="label">
+                                        UserId 
+                                    </td>
+                                    <td className="input-field" maxLength="10">
+                                        <input type="text" name="userId" placeholder='Enter Your UserId' autoComplete='off' onChange={userIdHandler} />
+                                    </td>
+                                </tr><tr className="row">
+                                    <td className="label">
+                                        Password 
+                                    </td>
+                                    <td className="input-field" maxLength="20">
+                                        <input type="text" name="password" placeholder='Enter Your Password' autoComplete='off' onChange={passwordHandler} />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <br/>
+                        <button type="submit" id="submit-btn">Submit</button>
+                    </form>
+                    <div id="Login-section">
+                        <a href="#" className='login-href'>I have already Account</a>
+                
+                        <a href="#" className='login-href'>SignUp as Engineer</a>
+
                     </div>
                 </div>
             </div>
@@ -40,4 +133,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp
+export default SignUp;

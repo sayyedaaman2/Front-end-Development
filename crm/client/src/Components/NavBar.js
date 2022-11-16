@@ -1,23 +1,21 @@
-import React from 'react'
+import logo from "../img/logo.png";
 
-const NavBar = () => {
+function Navbar() {
     return (
         <>
             <nav id="navbar">
-                <div className="navbar-logo">
-                    <h1 id="logo">CRM</h1>
+                <div id="logo-container">
+                    <div id="logo-img-wrap"><img id="logo-img" src={logo} /></div>
+                    <div id="companyName-wrap"><a href="/" id="companyName">Customer Realtion Management</a></div>
+
                 </div>
-                <div className="navbar-item">
-                    <ul>
-                        <li className='menu-item'>
-                            <a href="#">Home</a>
-                        </li>
-                        <li className='menu-item'>
-                            <a href="#">Register</a>
-                        </li>
-                        <li className='menu-item'>
-                            <a href="#">About</a>
-                        </li>
+                <div id="header">
+
+                </div>
+                <div id="navbar-menu">
+                    <ul id="navbar-list">
+                        <li className="menu-items"><a className="menu-href" href="#">Login</a></li>
+                        <li className="menu-items" ><a className="menu-href" href="#">About</a></li>
                     </ul>
                 </div>
             </nav>
@@ -25,4 +23,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default Navbar;

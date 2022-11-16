@@ -1,12 +1,14 @@
-import logo from './logo.svg';
+
 import './App.css';
-import NavBar from "./Components/NavBar"
+
+import Navbar from "./Components/Navbar"
 import SignUp from './Components/SignUp';
+
 function App() {
   return (
     <>
-    <NavBar/>
-    <SignUp/>
+      <Navbar/>
+      <SignUp/>
     </>
   );
 }
