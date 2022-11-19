@@ -1,3 +1,4 @@
+import MessageBox from "./MessageBox";
 
 import { useState } from 'react';
 import ProfilePic from '../img/profile-icon.png'
@@ -134,6 +135,7 @@ function SignUp() {
 
                     </div>
                 </div>
+                <MessageBox/>
             </div>
         </>
     )

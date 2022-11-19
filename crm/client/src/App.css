@@ -126,6 +126,7 @@ body {
 
 /*  ### profile section ###  */
 #signUp-container {
+  position: relative;
   min-width: 780px;
   width: 50%;
   box-sizing: border-box;
@@ -321,6 +322,92 @@ tbody{
   transform: translate(0px, 2px);
 }
 
+
+
+
+/* Message Box  */
+
+#message-box{
+  
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(84, 137, 175)
+  );
+  border : 2px solid black;
+  border-radius: 25px;
+
+  min-height: 100px;
+  height: 150px;
+  width: 50%;
+  min-width: 366px;
+  padding : 12px 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  position: absolute;
+  top : 50%;
+  left: 50%;
+  transform : translate(-50%,-50%);
+  /* display: block; */
+
+}
+
+#message-content{
+  box-sizing: border-box;
+  height: 40%;
+  width: 100%;
+  /* background-color: beige; */
+   display: block;
+   text-align: center;
+  margin: 0 auto;   
+  padding : 12px 12px;
+  /* box-sizing: border-box; */
+  font-size: 25px;
+  text-transform: uppercase;
+}
+
+#message-button-continer{
+  box-sizing: border-box;
+  height: 30%;
+  width: 100%;
+  padding : 5px 12px;
+  /* background-color: azure; */
+}
+#message-btn{
+  display: block;
+  margin: 0 auto;
+  height: 100%;
+  width: 50%;
+  display: flex;
+
+  border: 1px solid white;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(91, 83, 83),
+    rgb(84, 137, 175)
+  );
+  border-radius: 25px;
+  box-shadow: 0px 5px 4px black;
+  padding: 12px 12px;
+  height: 35px;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease-in-out;
+}
+
+#message-btn:hover{
+  box-shadow: 0px 0px 4px white;
+  background: aqua;
+  transform: translate(0px, 2px);
+}
+
+
+
+
+
+
 /* media query */
 
 @media only screen and (max-width: 700px) {
@@ -403,3 +490,5 @@ tbody{
   }
 
 }
+
+

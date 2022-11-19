@@ -1,4 +1,4 @@
-
+import MessageBox from "./MessageBox";
 import { useState } from 'react';
 import ProfilePic from '../img/profileEng-icon.png'
 import constans from '../utils/constans';
@@ -134,6 +134,7 @@ function SignUpEng() {
 
                     </div>
                 </div>
+                <MessageBox/>
             </div>
         </>
     )
