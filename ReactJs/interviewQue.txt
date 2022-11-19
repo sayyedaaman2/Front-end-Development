@@ -1,0 +1,57 @@
+ interview Question :
+ 1. why npm uses 
+ 2. npm alternative
+ 3. how to check reactjs version
+ 4. important file in reactjs
+ 5. why the node_modules folder is not push on the github.
+ 6. when the other person use the project how they get the node_modules folder
+ 7. it's possible or not the component build in side the component.
+ 8. can we use reactjs and angularjs on single project 
+ 9. can we use jsx with out reactjs
+  
+ useState
+ 10. a component state can we use out side ?
+ 11. state is public or private;
+ 12. can we use "useState" on  class component ?
+
+ Props 
+ 13. can we pass the function in props
+ 14. can we pass the html in props
+ 15. we taking the inputbox value can we take the redio button & checkbox values ?
+ 16. can we call the function in super child
+
+
+ 17. What is life cycle method
+ 18. when we remove the componant and reload the componant? create new cycle or rerun current cycle
+ 19. can we get the props in constructor 
+
+ * render : execute and present *
+  whenever any componant value will be change render function will executed  
+  1.when the componant ready
+  2. when state is update 
+  3. when the props are update
+ 
+ 20. can we write the redner function inside the render or in function can we write multiple render functions
+ 21. what is use of componentDidMount
+ 22. which function will call first render or componentDidMount
+ 23. can we update the state in the componentDidMount
+ 24. can we update the state inside render or not
+ 
+ 25. what is use of componentDidUpdate
+ 26. can we update the state inside the componentDidUpdate 
+
+ * in the componentDidUpdate update the state with the condition otherwise there is go to the loop 
+
+ 27. can we stop to execute the componentDidUpdate ?
+ 28. can we call api into the componentDidUpdate ? why or why not
+ 29. which one update fast componentDidUpdate or shouldComponentUpdate 
+ 30. when the component remove the coponentWillUnmout execute before or after ?
+ 31. when the Parent component is function component and child component is class component then coponentWillUnmout are execute or not ?
+ 
+ **  Hooks **
+ 
+ 32. can we use the hook in class component ?
+ 33. what is useEffect ?
+ 34. can we use a useState inside the useEffect ?
+ 35. can we use  the useEffect inside the function ?
+
