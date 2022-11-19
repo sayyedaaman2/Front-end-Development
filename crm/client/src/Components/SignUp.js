@@ -17,10 +17,10 @@ function SignUp() {
     function nameHandler(e) {
         let name = e.target.value;
         var validNameRegex = new RegExp(/^[a-zA-Z\s]*$/g);
-        if(validNameRegex.test(name)){
+        if (validNameRegex.test(name)) {
             // console.log("valid");
             setNameErr(false);
-        }else{
+        } else {
             setNameErr(true);
             // console.log("Invalid");
 
@@ -43,9 +43,9 @@ function SignUp() {
     function userIdHandler(e) {
         let userId = e.target.value;
         var validUserIdRegex = new RegExp(/^[a-zA-Z][^\s-]+$/);
-        if(validUserIdRegex.test(userId)){
+        if (validUserIdRegex.test(userId)) {
             setUserIdErr(false);
-        }else{
+        } else {
             setUserIdErr(true);
         }
         setUserId(userId);
@@ -55,9 +55,9 @@ function SignUp() {
         let password = e.target.value;
         var validPasswordRegex = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
         //S.Aaman$1234
-        if(validPasswordRegex.test(password)){
+        if (validPasswordRegex.test(password)) {
             setPasswordErr(false);
-        }else{
+        } else {
             setPasswordErr(true);
         }
         setPassword(password);
@@ -67,10 +67,10 @@ function SignUp() {
     function SubmitData(e) {
         e.preventDefault();
 
-        if(!nameErr && !userIdErr && !emailErr && !passwordErr){
+        if (!nameErr && !userIdErr && !emailErr && !passwordErr) {
             //Post request write here
             alert("Successfuly Register")
-        }else{
+        } else {
             alert("Fill the information")
         }
     }
@@ -92,38 +92,42 @@ function SignUp() {
                                     </td>
                                     <td className="input-field" maxLength="10">
                                         <input type="text" name="name" placeholder='Enter Your Name' autoComplete='off' onChange={nameHandler} />
+                                        <div className="errorIcon">{ name!= "" ? nameErr? <span className="falseMark">&#215;</span> :<span className="trueMark">&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                                 <tr className="row">
                                     <td className="label">
-                                        Email 
+                                        Email
                                     </td>
                                     <td className="input-field" maxLength="20">
                                         <input type="text" name="email" placeholder='Enter Your Email' autoComplete='off' onChange={emailHandler} />
+                                        <div className="errorIcon">{ email!= "" ? emailErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr><tr className="row">
                                     <td className="label">
-                                        UserId 
+                                        UserId
                                     </td>
                                     <td className="input-field" maxLength="10">
                                         <input type="text" name="userId" placeholder='Enter Your UserId' autoComplete='off' onChange={userIdHandler} />
+                                        <div className="errorIcon">{ userId!= "" ? userIdErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr><tr className="row">
                                     <td className="label">
-                                        Password 
+                                        Password
                                     </td>
                                     <td className="input-field" maxLength="20">
                                         <input type="text" name="password" placeholder='Enter Your Password' autoComplete='off' onChange={passwordHandler} />
+                                        <div className="errorIcon">{ password!= "" ? passwordErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <br/>
+                        <br />
                         <button type="submit" id="submit-btn">Submit</button>
                     </form>
                     <div id="Login-section">
                         <a href="#" className='login-href'>I have already Account</a>
-                
+
                         <a href="#" className='login-href'>SignUp as Engineer</a>
 
                     </div>
