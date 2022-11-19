@@ -160,7 +160,7 @@ body {
   width: 50%;
   margin: 0 auto;
   padding: 21px 20px;
-  border: 2px solid red;
+  /* border: 2px solid red; */
   border-radius: 24px;
   background-image: linear-gradient(
     to bottom right,
@@ -229,11 +229,27 @@ tbody{
 }
 .trueMark{
   font-size: 20px;
+  font-weight: 900;
   color : green;
+  border : 1px solid white;
+  border-radius: 25px;
+  padding : 5px 12px;
+  background-color: white;
+  transform: scale(20px);
+  transition: 0.1s ;
 }
 .falseMark{
-  color : red;
-  font-size: 35px;
+  color : rgb(255, 255, 255);
+  box-sizing: border-box;
+  font-size: 30px;
+  font-weight: 900;
+  border : 0px solid white;
+  border-radius: 25px;
+  padding : 0px 10px;
+  background-color: rgb(216, 10, 10);
+  transform: scale(20px);
+  transition: 0.1s ;
+
 }
 
 
@@ -382,4 +398,8 @@ tbody{
     width: 80%;
     margin-bottom: 12px;
   }
+  .input-field{
+    width: 55%;
+  }
+
 }

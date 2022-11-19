@@ -1,15 +1,15 @@
 
 import { useState } from 'react';
-import ProfilePic from '../img/profile-icon.png'
+import ProfilePic from '../img/profileEng-icon.png'
 import constans from '../utils/constans';
 
-function SignUp() {
+function SignUpEng() {
 
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
-    const [userType, setUserType] = useState(constans.userType.customer);
+    const [userType, setUserType] = useState(constans.userType.engineer);
 
     const [nameErr, setNameErr] = useState(false);
     const [emailErr, setEmailErr] = useState(false);
@@ -69,7 +69,7 @@ function SignUp() {
     function SubmitData(e) {
         e.preventDefault();
 
-        if (!nameErr && !userIdErr && !emailErr && !passwordErr && userType == constans.userType.customer) {
+        if (!nameErr && !userIdErr && !emailErr && !passwordErr && userType == constans.userType.engineer ) {
             //Post request write here
             alert("Successfuly Register")
         } else {
@@ -130,7 +130,7 @@ function SignUp() {
                     <div id="Login-section">
                         <a href="#" className='login-href'>I have already Account</a>
 
-                        <a href="#" className='login-href'>SignUp as Engineer</a>
+                        <a href="#" className='login-href'>SignUp as Customer</a>
 
                     </div>
                 </div>
@@ -139,4 +139,4 @@ function SignUp() {
     )
 }
 
-export default SignUp;
+export default SignUpEng;
