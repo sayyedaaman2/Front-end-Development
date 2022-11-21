@@ -293,6 +293,8 @@ tbody{
 }
 .login-href {
   text-decoration: none;
+  color: black;
+  font-weight: 500;
   width: 60%;
   font-size: 15px;
   margin: 0px auto;
@@ -339,6 +341,7 @@ tbody{
 
   min-height: 100px;
   height: 150px;
+
   width: 50%;
   min-width: 366px;
   padding : 12px 12px;
@@ -349,9 +352,10 @@ tbody{
   top : 50%;
   left: 50%;
   transform : translate(-50%,-50%);
+  transition: 2s ease-in-out;
   /* display: block; */
-
 }
+
 
 #message-content{
   box-sizing: border-box;
