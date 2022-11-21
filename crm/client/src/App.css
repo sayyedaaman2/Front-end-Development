@@ -178,7 +178,7 @@ body {
 table {
   width: 100%;
 }
-tbody{
+tbody {
   width: 100%;
 }
 
@@ -186,7 +186,6 @@ tbody{
   display: flex;
   justify-content: space-between;
   width: 100%;
-
 }
 .label {
   /* border: 2px solid burlywood; */
@@ -219,40 +218,38 @@ tbody{
     rgb(84, 137, 175)
   );
 }
-.errorIcon{
+.errorIcon {
   /* border: 2px green solid; */
   width: 10px;
   height: 10px;
-  margin : 0px auto;
+  margin: 0px auto;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.trueMark{
+.trueMark {
   font-size: 20px;
   font-weight: 900;
-  color : green;
-  border : 1px solid white;
+  color: green;
+  border: 1px solid white;
   border-radius: 25px;
-  padding : 5px 12px;
+  padding: 5px 12px;
   background-color: white;
   transform: scale(20px);
-  transition: 0.1s ;
+  transition: 0.1s;
 }
-.falseMark{
-  color : rgb(255, 255, 255);
+.falseMark {
+  color: rgb(255, 255, 255);
   box-sizing: border-box;
   font-size: 30px;
   font-weight: 900;
-  border : 0px solid white;
+  border: 0px solid white;
   border-radius: 25px;
-  padding : 0px 10px;
+  padding: 0px 10px;
   background-color: rgb(216, 10, 10);
   transform: scale(20px);
-  transition: 0.1s ;
-
+  transition: 0.1s;
 }
-
 
 #submit-btn {
   font-family: "Sono", sans-serif;
@@ -293,7 +290,7 @@ tbody{
 }
 .login-href {
   text-decoration: none;
-  color: black;
+  color: rgb(0, 0, 0);
   font-weight: 500;
   width: 60%;
   font-size: 15px;
@@ -320,23 +317,19 @@ tbody{
     rgb(255, 255, 255),
     rgb(24, 183, 232)
   );
-  color: rgb(255, 0, 217);
+  color: rgb(255, 0, 0);
   transform: translate(0px, 2px);
 }
 
-
-
-
 /* Message Box  */
 
-#message-box{
-  
+#message-box {
   background-image: linear-gradient(
     to bottom right,
     rgb(255, 255, 255),
     rgb(84, 137, 175)
   );
-  border : 2px solid black;
+  border: 2px solid black;
   border-radius: 25px;
 
   min-height: 100px;
@@ -344,41 +337,40 @@ tbody{
 
   width: 50%;
   min-width: 366px;
-  padding : 12px 12px;
+  padding: 12px 12px;
   display: flex;
   flex-direction: column;
-  justify-content:space-around;
+  justify-content: space-around;
   position: absolute;
-  top : 50%;
+  top: 50%;
   left: 50%;
-  transform : translate(-50%,-50%);
+  transform: translate(-50%, -50%);
   transition: 2s ease-in-out;
   /* display: block; */
 }
 
-
-#message-content{
+#message-content {
   box-sizing: border-box;
   height: 40%;
   width: 100%;
   /* background-color: beige; */
-   display: block;
-   text-align: center;
-  margin: 0 auto;   
-  padding : 12px 12px;
+  display: block;
+  text-align: center;
+  margin: 0 auto;
+  padding: 12px 12px;
   /* box-sizing: border-box; */
   font-size: 25px;
   text-transform: uppercase;
 }
 
-#message-button-continer{
+#message-button-continer {
   box-sizing: border-box;
   height: 30%;
   width: 100%;
-  padding : 5px 12px;
+  padding: 5px 12px;
   /* background-color: azure; */
 }
-#message-btn{
+#message-btn {
   display: block;
   margin: 0 auto;
   height: 100%;
@@ -401,7 +393,7 @@ tbody{
   transition: 0.5s ease-in-out;
 }
 
-#message-btn:hover{
+#message-btn:hover {
   box-shadow: 0px 0px 4px white;
   background: aqua;
   transform: translate(0px, 2px);
@@ -409,6 +401,109 @@ tbody{
 
 
 
+/* Login page  */
+
+#login-container {
+  position: relative;
+  min-width: 780px;
+  width: 50%;
+  min-height: 400px;
+  box-sizing: border-box;
+  margin: 5% auto;
+  padding: 0px 0px;
+  background-color: rgba(244, 244, 244, 0.845);
+  border: 2px solid black;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px black;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+#login-pic-section {
+  /* background-color: antiquewhite; */
+
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-logo {
+  width: 200px;
+  border-radius: 100px;
+  background-color: white;
+  box-shadow: 0px 0px 50px black;
+}
+
+/* form  login section */
+
+
+
+#login-form-section {
+  box-sizing: border-box;
+  width: 50%;
+  margin: 0 auto;
+  padding: 45px 35px;
+  /* border: 2px solid red; */
+  border-radius: 24px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(255, 255, 255),
+    rgb(84, 137, 175)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  line-height: 10px;
+}
+
+#login-form {
+  /* border : 2px solid rgba(168, 168, 0, 0.664); */
+  height: 80%;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#signup-section {
+  font-family: "Sono", sans-serif;
+  height: 35px;
+  width: 45%;
+  font-weight: 400;
+  font-size: 15px;
+  background-image: linear-gradient(
+    to left,
+    rgb(255, 255, 255),
+    rgb(84, 137, 175)
+  );
+  border-radius: 12px;
+  box-shadow: 0px 2px 5px black;
+  transition: 0.1s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.signup-href {
+  text-decoration: none;
+  color: black;
+}
+
+#sign-section:hover,#sign-section:focus {
+  box-shadow: 0px 0px 4px white;
+  background-image: linear-gradient(
+    to left,
+    rgb(84, 137, 175),
+    rgb(255, 255, 255),
+    rgb(24, 183, 232)
+  );
+  color: rgb(255, 0, 217);
+  cursor: pointer;
+  transform: translate(0px, 2px);
+}
 
 
 
@@ -419,7 +514,7 @@ tbody{
     /* height: 200px; */
     height: max-content;
     width: 100%;
-    padding : 0px 0px;
+    padding: 0px 0px;
     display: block;
     background-color: rgba(65, 65, 64, 0.918);
   }
@@ -440,59 +535,51 @@ tbody{
   #companyName-wrap {
     height: 30px;
     margin: 0;
-    padding :0;
+    padding: 0;
     text-align: center;
-    
+
     width: 100%;
   }
-  #companyName{
+  #companyName {
     display: inline;
   }
 
-
-  #navbar-menu{
+  #navbar-menu {
     /* background-color: green; */
     display: block;
     width: 100%;
     height: 85px;
   }
-  #navbar-list{
+  #navbar-list {
     display: block;
-    
   }
-  .menu-items{
+  .menu-items {
     margin: 4px auto;
     width: 100%;
     border: none;
     border-radius: 0;
   }
 
-  #signUp-container{
-    min-width: 600px ;
+  #signUp-container {
+    min-width: 600px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  } 
+  }
 
-  #signUp-pic-section{
+  #signUp-pic-section {
     width: 100%;
-    margin : 35px 12px;    
+    margin: 35px 12px;
   }
-  #signUp-logo{
+  #signUp-logo {
     width: 150px;
-
   }
 
-
-
-  #signUp-form-section{
+  #signUp-form-section {
     width: 80%;
     margin-bottom: 12px;
   }
-  .input-field{
+  .input-field {
     width: 55%;
   }
-
 }
-
-
