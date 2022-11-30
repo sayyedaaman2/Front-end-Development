@@ -37,6 +37,16 @@ function Login() {
         }
         setPassword(password);
     }
+    function SubmitData(e) {
+        e.preventDefault();
+
+        if (!userIdErr && !passwordErr && userId && password) {
+            //Post request write here
+            alert("Successfuly Login")
+        } else {
+            alert("Fill the information")
+        }
+    }
 
     return (
         <>
@@ -45,7 +55,7 @@ function Login() {
                     <img id='login-logo' src={loginPic} />
                 </div>
                 <div id='login-form-section'>
-                    <form id='login-form'>
+                    <form id='login-form' onSubmit={SubmitData} >
                         <table>
                             <tbody>
                                 <tr className='row'>

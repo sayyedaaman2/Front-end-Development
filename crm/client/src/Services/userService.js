@@ -15,14 +15,14 @@
 
 
 let API = "https://jsonplaceholder.typicode.com/users/1"
-const fecthApiData = async (url) => {
+const fecthApiData = async (API) => {
     try {
-        const res = await fetch(url);
+        const res = await fetch(API);
         const data = await res.json();
-        console.log(data);
+        console.log("PRO",data);
     } catch (error) {
         console.log(error);
     }
 }
 
-console.log(fecthApiData());
+fecthApiData(API)

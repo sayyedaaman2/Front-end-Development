@@ -616,14 +616,20 @@ tbody {
     height: max-content;
   }
   .row {
+    width: 100%;
     box-sizing: border-box;
     justify-content: space-between;
     padding: 0px;
     margin: 0px;
   }
   .input-field{
+    width: 60%;
     justify-content: space-between;
     align-items: center;
+  }
+  .label{
+    width: 30%;
+    justify-content: center;
   }
   #signup-section {
     margin: 25px;

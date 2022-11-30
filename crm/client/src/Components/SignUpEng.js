@@ -69,7 +69,7 @@ function SignUpEng() {
     function SubmitData(e) {
         e.preventDefault();
 
-        if (!nameErr && !userIdErr && !emailErr && !passwordErr && userType == constans.userType.engineer ) {
+        if (!nameErr && !userIdErr && !emailErr && !passwordErr && userId  && password  && email  && name && userType == constans.userType.customer) {
             //Post request write here
             alert("Successfuly Register")
         } else {
