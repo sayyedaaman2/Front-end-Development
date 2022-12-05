@@ -52,7 +52,7 @@ function Login() {
         <>
             <div id='login-container'>
                 <div id='login-pic-section'>
-                    <img id='login-logo' src={loginPic} />
+                    <img id='login-logo' src={loginPic} alt="login-pic"/>
                 </div>
                 <div id='login-form-section'>
                     <form id='login-form' onSubmit={SubmitData} >
@@ -64,7 +64,7 @@ function Login() {
                                     </td>
                                     <td className='input-field'>
                                         <input type="text" name='userId' placeholder='Enter your UserId' autoComplete='off' onChange={userIdHandler} />
-                                        <div className="errorIcon">{userId != "" ? userIdErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
+                                        <div className="errorIcon">{userId !== "" ? userIdErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                                 <tr className='row'>
@@ -73,7 +73,7 @@ function Login() {
                                     </td>
                                     <td className='input-field'>
                                         <input type="text" name='password' placeholder='Enter your Password' autoComplete='off' onChange={passwordHandler}/>
-                                        <div className="errorIcon">{password != "" ? passwordErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
+                                        <div className="errorIcon">{password !== "" ? passwordErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -83,7 +83,7 @@ function Login() {
                     </form>
                     <div id="signup-section">
 
-                        <a href="#" className='signup-href'>SignUp</a>
+                        <a href="#" className='signup-href' value="SignUp">SignUp</a>
 
                     </div>
                 </div>

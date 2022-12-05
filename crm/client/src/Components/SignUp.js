@@ -1,9 +1,9 @@
-import MessageBox from "./MessageBox";
+// import MessageBox from "./MessageBox";
 
 import { useState } from 'react';
-import ProfilePic from '../img/profile-icon.png'
-import constans from '../utils/constans';
-import {signUp} from "../Services/userService";
+import CustomerPic  from '../img/profile-icon.png'
+import EngineerPic from '../img/profileEng-icon.png'
+import constant from '../utils/constant';
 
 function SignUp() {
 
@@ -11,7 +11,7 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const [userId, setUserId] = useState("");
     const [password, setPassword] = useState("");
-    const [userType, setUserType] = useState(constans.userType.customer);
+    const [userType, setUserType] = useState(constant.userType.customer);
 
     const [nameErr, setNameErr] = useState(false);
     const [emailErr, setEmailErr] = useState(false);
@@ -66,20 +66,27 @@ function SignUp() {
         }
         setPassword(password);
     }
-
+    
+    function userTypeHandler(e){
+        if(userType === constant.userType.customer){
+            setUserType(constant.userType.engineer);
+        }else{
+            setUserType(constant.userType.customer);
+        }
+    }
 
     function SubmitData(e) {
         e.preventDefault();
-        const body = {
-            name,
-            email,
-            password,
-            userId,
-            userType
-        }
-        if (!nameErr && !userIdErr && !emailErr && !passwordErr && userId  && password  && email  && name && userType == constans.userType.customer) {
+        // const body = {
+        //     name,
+        //     email,
+        //     password,
+        //     userId,
+        //     userType
+        // }
+        if (!nameErr && !userIdErr && !emailErr && !passwordErr && userId  && password  && email  && name && userType === constant.userType.customer) {
             //Post request write here
-            signUp(body);
+           
             alert("Successfuly Register")
         } else {
             alert("Fill the information")
@@ -90,7 +97,8 @@ function SignUp() {
             <div id="signUp-container">
 
                 <div id="signUp-pic-section">
-                    <img id="signUp-logo" src={ProfilePic} />
+                    { userType===constant.userType.customer ? <img id="signUp-logo" src={CustomerPic} alt="customer-pic" /> : <img id="signUp-logo" src={EngineerPic} alt="engineer-pic"/>
+}
                 </div>
 
                 <div id="signUp-form-section">
@@ -103,7 +111,7 @@ function SignUp() {
                                     </td>
                                     <td className="input-field" maxLength="10">
                                         <input type="text" name="name" placeholder='Enter Your Name' autoComplete='off' onChange={nameHandler} />
-                                        <div className="errorIcon">{ name!= "" ? nameErr? <span className="falseMark">&#215;</span> :<span className="trueMark">&#10003;</span> : <span> </span>}</div>
+                                        <div className="errorIcon">{ name!== "" ? nameErr? <span className="falseMark">&#215;</span> :<span className="trueMark">&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                                 <tr className="row">
@@ -112,7 +120,7 @@ function SignUp() {
                                     </td>
                                     <td className="input-field" maxLength="20">
                                         <input type="text" name="email" placeholder='Enter Your Email' autoComplete='off' onChange={emailHandler} />
-                                        <div className="errorIcon">{ email!= "" ? emailErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
+                                        <div className="errorIcon">{ email!== "" ? emailErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr><tr className="row">
                                     <td className="label">
@@ -120,7 +128,7 @@ function SignUp() {
                                     </td>
                                     <td className="input-field" maxLength="10">
                                         <input type="text" name="userId" placeholder='Enter Your UserId' autoComplete='off' onChange={userIdHandler} />
-                                        <div className="errorIcon">{ userId!= "" ? userIdErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
+                                        <div className="errorIcon">{ userId!== "" ? userIdErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr><tr className="row">
                                     <td className="label">
@@ -128,7 +136,7 @@ function SignUp() {
                                     </td>
                                     <td className="input-field" maxLength="20">
                                         <input type="text" name="password" placeholder='Enter Your Password' autoComplete='off' onChange={passwordHandler} />
-                                        <div className="errorIcon">{ password!= "" ? passwordErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
+                                        <div className="errorIcon">{ password!=="" ? passwordErr? <span className="falseMark" >&#215;</span> :<span className="trueMark" >&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                             </tbody>
@@ -137,9 +145,9 @@ function SignUp() {
                         <button type="submit" id="submit-btn">Submit</button>
                     </form>
                     <div id="Login-section">
-                        <a href="#" className='login-href'>I have already Account</a>
+                        <a href="/#" className='login-href'>I have already Account</a>
 
-                        <a href="#" className='login-href'>SignUp as Engineer</a>
+                    { userType===constant.userType.customer ? <button className='login-href' onClick={()=> userTypeHandler()}>SignUp as Engineer</button> : <button  className='login-href' onClick={()=> userTypeHandler()}>SignUp as Customer</button>}
 
                     </div>
                 </div>

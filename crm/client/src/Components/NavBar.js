@@ -5,7 +5,7 @@ function Navbar() {
         <>
             <nav id="navbar">
                 <div id="logo-container">
-                    <div id="logo-img-wrap"><img id="logo-img" src={logo} /></div>
+                    <div id="logo-img-wrap"><img id="logo-img" src={logo} alt="logo-img"/></div>
                     <div id="companyName-wrap"><a href="/" id="companyName">Customer Realtion Management</a></div>
 
                 </div>
@@ -14,8 +14,8 @@ function Navbar() {
                 </div>
                 <div id="navbar-menu">
                     <ul id="navbar-list">
-                        <li className="menu-items"><a className="menu-href" href="#">Login</a></li>
-                        <li className="menu-items" ><a className="menu-href" href="#">About</a></li>
+                        <li className="menu-items"><a className="menu-href" href="/#">Login</a></li>
+                        <li className="menu-items" ><a className="menu-href" href="/#">About</a></li>
                     </ul>
                 </div>
             </nav>
