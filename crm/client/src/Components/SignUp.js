@@ -3,6 +3,7 @@ import MessageBox from "./MessageBox";
 import { useState } from 'react';
 import ProfilePic from '../img/profile-icon.png'
 import constans from '../utils/constans';
+import User from "../Services/userService";
 
 function SignUp() {
 
@@ -69,9 +70,16 @@ function SignUp() {
 
     function SubmitData(e) {
         e.preventDefault();
-
+        const body = {
+            name,
+            email,
+            password,
+            userId,
+            userType
+        }
         if (!nameErr && !userIdErr && !emailErr && !passwordErr && userId  && password  && email  && name && userType == constans.userType.customer) {
             //Post request write here
+            User.signUp(body);
             alert("Successfuly Register")
         } else {
             alert("Fill the information")
@@ -135,7 +143,6 @@ function SignUp() {
 
                     </div>
                 </div>
-                <MessageBox/>
             </div>
         </>
     )

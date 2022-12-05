@@ -1,8 +1,8 @@
 
-function MessageBox() {
+function MessageBox(props) {
     return (
         <div id="message-box">
-            <div id='message-content'>Error Message</div>
+            <div id='message-content'>{props.messageContent.message}</div>
             <div id="message-button-continer">
                 <button id="message-btn" onClick={() => {
                     document.getElementById("message-box").style.display = "none";

@@ -1,28 +1,21 @@
+class User{
 
-// class User {
+    signUp(data){
 
-//     create(data) {
-//         const url = "http://127.0.0.1:8080/crm/api/v1/auth/signup";
-//         const config = {
-//             headers: {
-//                 'Content-Type': "application/json"
-//             }
-//         }
-//         const body = data;
-//         return fetch(url, config, body);
-//     }
-// }
-
-
-let API = "https://jsonplaceholder.typicode.com/users/1"
-const fecthApiData = async (API) => {
-    try {
-        const res = await fetch(API);
-        const data = await res.json();
-        console.log("PRO",data);
-    } catch (error) {
-        console.log(error);
+        fetch("url",{
+            method : "POST",
+            headers : {
+                'Content-Type' : "application/json"
+            },
+            body : JSON.stringify(data)
+        })
+        .then((response)=>{
+            response.json();
+        })
+        .then((data)=>{
+            console.log(data);
+        })
     }
 }
 
-fecthApiData(API)
+export default User =  new User;
