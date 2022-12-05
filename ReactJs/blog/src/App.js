@@ -1,11 +1,13 @@
 import './App.css';
-
-function App (){
-  
+import {Fragment} from "react"
+import User from './User'
+function App() {
+  function parentAlert(data){
+    alert(data)
+  }
   return (
-
     <div className='App'>
-   
+      <User alert={parentAlert}/>
     </div>
   )
 }
