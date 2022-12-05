@@ -3,7 +3,7 @@ import MessageBox from "./MessageBox";
 import { useState } from 'react';
 import ProfilePic from '../img/profile-icon.png'
 import constans from '../utils/constans';
-import User from "../Services/userService";
+import {signUp} from "../Services/userService";
 
 function SignUp() {
 
@@ -79,7 +79,7 @@ function SignUp() {
         }
         if (!nameErr && !userIdErr && !emailErr && !passwordErr && userId  && password  && email  && name && userType == constans.userType.customer) {
             //Post request write here
-            User.signUp(body);
+            signUp(body);
             alert("Successfuly Register")
         } else {
             alert("Fill the information")

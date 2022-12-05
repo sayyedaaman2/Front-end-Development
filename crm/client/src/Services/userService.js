@@ -1,21 +1,18 @@
-class User{
 
-    signUp(data){
+exports.signUp = function(data){
 
-        fetch("url",{
-            method : "POST",
-            headers : {
-                'Content-Type' : "application/json"
-            },
-            body : JSON.stringify(data)
-        })
-        .then((response)=>{
-            response.json();
-        })
-        .then((data)=>{
-            console.log(data);
-        })
-    }
+    fetch("http://localhost:8080/crm/api/v1/auth/signup",{
+        method : "POST",
+        headers : {
+            'Content-Type' : "application/json"
+        },
+        body : JSON.stringify(data)
+    })
+    .then((response)=>{
+        response.json();
+    })
+    .then((data)=>{
+        console.log(data);
+    })
+    return data;
 }
-
-export default User =  new User;
