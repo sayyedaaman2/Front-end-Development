@@ -1,15 +1,22 @@
 import './App.css';
-import {Fragment} from "react"
-import User from './User'
+import React from "react";
+
 function App() {
-  function parentAlert(data){
-    alert(data)
+
+  function submitForm(e){
+    e.preventDefault();
+    
   }
   return (
     <div className='App'>
-      <User alert={parentAlert}/>
+      <h1>Uncontroller in react</h1>
+      <form onSubmit={submitForm}>
+
+        <input type='text' /><br /> <br />
+        <input type='text' /><br /> <br />
+        <button>Submit</button>
+      </form>
     </div>
   )
 }
-
 export default App;
