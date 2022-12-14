@@ -54,4 +54,39 @@
  33. what is useEffect ?
  34. can we use a useState inside the useEffect ?
  35. can we use  the useEffect inside the function ?
+ 36. we have the bootstrap css library  can there  another library
+ 37. which of the loop is right in react forloop or map
+ 38. Warning: Each child in a list should have a unique "key" prop. what is warning says
+ 39. can we insert the id into table
+ 40. can intizilize the table before the serial No (S.N);
+ 
+ # React fragment
+ 41. what is React Fragment ?
+ 42. can we use the className inside Fragment ?
+ 43. we already use the Fragment into the child componant can we use the Fragment Parent also ?
+ 44. we have 5 nested components the parent component is pass the function. the super child able to use or not ?
 
+ # Pure component
+ 45. inside the functional component did use the pure component ?
+
+ ## useMemo
+ 46. why use useMemo Hook ?
+ 47. can we use the "useMemo" inside the class component ?
+
+ ## Ref
+ It's manupilate the DOM
+ 48. can i use inside the component more than one
+ 49. can i use the multiple ref on single element
+ 50. can we use the ref inside the function componant
+
+ ## useRef
+ 51. which one is better to use 'useState' or 'useRef' for DOM manupaltion
+
+ ## forwardRef
+ 52. what is forwardRef ?
+
+ ## Controller component
+ 53. what is Controller Component and UnController Component
+ 
+ ## UnController Component
+ 
