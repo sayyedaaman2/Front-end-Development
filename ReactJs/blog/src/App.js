@@ -1,22 +1,23 @@
-import './App.css';
-import React from "react";
 
-function App() {
+import React from 'react'
+class App extends React.Component {
 
-  function submitForm(e){
-    e.preventDefault();
-    
+  constructor(props){
+    super(props);
+    this.state = {
+      counter : 0
+    };
+
   }
-  return (
-    <div className='App'>
-      <h1>Uncontroller in react</h1>
-      <form onSubmit={submitForm}>
-
-        <input type='text' /><br /> <br />
-        <input type='text' /><br /> <br />
-        <button>Submit</button>
-      </form>
-    </div>
-  )
+  render() {
+    return (
+      <div id='App'>
+        <h1>Hello World</h1>
+        <h1>Count : {this.state.counter}</h1>
+        <button onClick={()=>this.setState({'counter' : this.state.counter+1})}>clickMe</button>
+      </div>
+    )
+  }
 }
+
 export default App;
