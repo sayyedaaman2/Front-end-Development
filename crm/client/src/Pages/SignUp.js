@@ -1,6 +1,8 @@
 // import MessageBox from "./MessageBox";
 
 import { useState } from 'react';
+import {Link} from 'react-router-dom'
+
 import CustomerPic  from '../img/profile-icon.png'
 import EngineerPic from '../img/profileEng-icon.png'
 import constant from '../utils/constant';
@@ -145,7 +147,7 @@ function SignUp() {
                         <button type="submit" id="submit-btn">Submit</button>
                     </form>
                     <div id="Login-section">
-                        <a href="/#" className='login-href'>I have already Account</a>
+                        <Link to="/login" className='login-href'>I have already Account</Link>
 
                     { userType===constant.userType.customer ? <button className='login-href' onClick={()=> userTypeHandler()}>SignUp as Engineer</button> : <button  className='login-href' onClick={()=> userTypeHandler()}>SignUp as Customer</button>}
 

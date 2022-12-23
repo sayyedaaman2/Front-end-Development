@@ -7,9 +7,10 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from "./Components/Navbar";
 
 //pages
-import Home from './Components/Home';
-import SignUp from './Components/SignUp';
-import Login from './Components/Login';
+import Home from './Pages/Home';
+import SignUp from './Pages/SignUp';
+import Login from './Pages/Login';
+import About from './Pages/About';
 
 function App() {
 
@@ -22,7 +23,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
 
           <Route path='/login' element={<Login />} />
-
+          <Route path='/about' element={<About/>}/>
         </Routes>
       </BrowserRouter>
     </>

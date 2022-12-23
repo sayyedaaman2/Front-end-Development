@@ -2,6 +2,7 @@ import loginPic from '../img/login-icon.png';
 
 
 import React, {useState} from "react";
+import {Link} from 'react-router-dom'
 
 function Login() {
 
@@ -83,7 +84,7 @@ function Login() {
                     </form>
                     <div id="signup-section">
 
-                        <a href="#" className='signup-href' value="SignUp">SignUp</a>
+                        <Link to="/signup" className='signup-href' value="SignUp">SignUp</Link>
 
                     </div>
                 </div>
