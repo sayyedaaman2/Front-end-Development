@@ -1,16 +1,7 @@
 import logo from "../img/logo.png"
 import { NavLink } from 'react-router-dom'
-import { useState } from 'react'
 function Navbar() {
-    const [authPage, setAuthPage] = useState("login");
 
-    function switchPage() {
-        if (authPage === 'login') {
-            setAuthPage('signup');
-        } else {
-            setAuthPage('login');
-        }
-    }
     return (
         <>
             <nav id="navbar">
@@ -24,7 +15,8 @@ function Navbar() {
                 </div>
                 <div id="navbar-menu">
                     <ul id="navbar-list">
-                        {authPage === 'login' ? <li className="menu-items"><NavLink to='/login' className="menu-href" onClick={() => switchPage()}>Login</NavLink></li> : <li className="menu-items"><NavLink to='/signup' className="menu-href" onClick={() => switchPage()}>SignUp</NavLink></li>}  
+                        <li className="menu-items"><NavLink to='/signup' className="menu-href" >SignUp</NavLink></li>
+                        <li className="menu-items"><NavLink to='/login' className="menu-href" >Login</NavLink></li>
                         <li className="menu-items" ><NavLink to="/about" className="menu-href" >About </NavLink></li>
                     </ul>
                 </div>

@@ -1,8 +1,8 @@
 import loginPic from '../img/login-icon.png';
 
 
-import React, {useState} from "react";
-import {Link} from 'react-router-dom'
+import React, { useState } from "react";
+import { Link } from 'react-router-dom'
 
 function Login() {
 
@@ -13,9 +13,9 @@ function Login() {
     const [passwordErr, setPasswordErr] = useState(false);
 
     //userId handler
-    function userIdHandler(e){
+    function userIdHandler(e) {
         let userId = e.target.value;
-        console.log("userId" , userId)
+        console.log("userId", userId)
 
         var validUserIdRegex = new RegExp(/^[a-zA-Z][^\s-]+$/);
         if (validUserIdRegex.test(userId)) {
@@ -28,7 +28,7 @@ function Login() {
 
     function passwordHandler(e) {
         let password = e.target.value;
-        console.log("password" , password)
+        console.log("password", password)
         var validPasswordRegex = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
         //S.Aaman$1234
         if (validPasswordRegex.test(password)) {
@@ -53,7 +53,7 @@ function Login() {
         <>
             <div id='login-container'>
                 <div id='login-pic-section'>
-                    <img id='login-logo' src={loginPic} alt="login-pic"/>
+                    <img id='login-logo' src={loginPic} alt="login-pic" />
                 </div>
                 <div id='login-form-section'>
                     <form id='login-form' onSubmit={SubmitData} >
@@ -73,13 +73,13 @@ function Login() {
                                         Password
                                     </td>
                                     <td className='input-field'>
-                                        <input type="text" name='password' placeholder='Enter your Password' autoComplete='off' onChange={passwordHandler}/>
+                                        <input type="text" name='password' placeholder='Enter your Password' autoComplete='off' onChange={passwordHandler} />
                                         <div className="errorIcon">{password !== "" ? passwordErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-                        <br/>
+                        <br />
                         <button type="submit" id="submit-btn">Submit</button>
                     </form>
                     <div id="signup-section">
