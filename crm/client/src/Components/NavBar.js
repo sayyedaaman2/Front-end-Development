@@ -7,10 +7,7 @@ function Navbar() {
             <nav id="navbar">
                 <div id="logo-container">
                     <div id="logo-img-wrap"><img id="logo-img" src={logo} alt="logo-img" /></div>
-                    <div id="companyName-wrap"><a href="/" id="companyName">Customer Realtion Management</a></div>
-
-                </div>
-                <div id="header">
+                    <div id="companyName-wrap"><NavLink to='/' id="companyName" >Customer Realtion Management</NavLink></div>
 
                 </div>
                 <div id="navbar-menu">
