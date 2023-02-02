@@ -4,7 +4,7 @@ import React from 'react';
 function Home(){
     return(
         <>
-            <div id='home-conatiner'>
+            <div className='bg-red-300'>
                 <div className='welcome-message'>
                     <h1>Welcome to Customer Realtion Management </h1>
                 </div>
