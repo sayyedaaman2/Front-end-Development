@@ -5,17 +5,17 @@ module.exports = {
     "./src/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    screens: {
-      'mobile': '320px',
+    // screens: {
+    //   'mobile': '320px',
 
-      'iPad': '480px',
+    //   "iPad" : '480px',
+      
+    //   'laptop': '768px',
 
-      'laptop': '768px',
+    //   'desktop': '1024px',
 
-      'desktop': '1024px',
-
-      'extra-large' : '1200px'
-    },
+    //   'extra-large' : '1200px'
+    // },
     extend: {},
   },
   plugins: [],

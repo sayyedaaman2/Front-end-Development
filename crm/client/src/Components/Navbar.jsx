@@ -3,26 +3,56 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 function Navbar() {
   const [menuBtn, setMenuBtn] = useState(false);
+  const [activeMenu, setActiveMenu] = useState("menu");
 
-  useEffect(()=>{
-
-  },[menuBtn])
+  function toggler() {
+    setMenuBtn(!menuBtn);
+    console.log("toggler");
+    activeMenu === "menu"
+      ? setActiveMenu(" menu_active menu")
+      : setActiveMenu("menu");
+  }
+  useEffect(() => {}, [menuBtn]);
   return (
     <>
-      <nav className="w-screen bg-blue-100">
-        <div className="flex space-around px-2">
-          <div className=" flex items-center">
-            <img className="mobile:w-12" src={logo} alt="logo-img" />
+      <nav className="relative nav_bg w-screen">
+        <div className=" mx-2 flex gap-4 justify-between items-center sm:mx-6 md:justify-evenly">
+          <div className="w-10 m-2 basis-10">
+            <img className="w-full" src={logo} alt="logo-img" />
           </div>
-          <div className="flex items-center justify-center w-full">
+          <div className=" basis-auto font-bold uppercase text-xs sm:text-lg md:basis-1/2">
             <NavLink
               to="/"
-              className="mobile:text-sm iPad:text:sm laptop:text-lg p-2"
+              className=""
             >
               Customer Realtion Management
             </NavLink>
           </div>
-          <div className="m-auto " onClick={() => setMenuBtn(!menuBtn)}>
+       
+          <div className={activeMenu}>
+            <ul className="md:flex">
+              <li className="menu-items">
+                <NavLink to="/signup" 
+                className="menu-href">
+                  SignUp
+                </NavLink>
+              </li>
+              <li className="menu-items">
+                <NavLink to="/login" className="menu-href">
+                  Login
+                </NavLink>
+              </li>
+              <li className="menu-items">
+                <NavLink to="/about" className="menu-href">
+                  About{" "}
+                </NavLink>
+              </li>
+            </ul>
+          </div>
+          <div
+            className="basis-1/12 md:hidden"
+            onClick={toggler}
+          >
             {menuBtn ? (
               <svg xmlns="http://www.w3.org/2000/svg" height="46" width="38">
                 <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z" />
@@ -33,25 +63,6 @@ function Navbar() {
               </svg>
             )}
           </div>
-        </div>
-        <div className="menu">
-          <ul className="">
-            <li className="menu-items hover:shadow-none hover:bg-slate-50">
-              <NavLink to="/signup" className="menu-href">
-                SignUp
-              </NavLink>
-            </li>
-            <li className="menu-items">
-              <NavLink to="/login" className="menu-href">
-                Login
-              </NavLink>
-            </li>
-            <li className="menu-items">
-              <NavLink to="/about" className="menu-href">
-                About{" "}
-              </NavLink>
-            </li>
-          </ul>
         </div>
       </nav>
     </>
