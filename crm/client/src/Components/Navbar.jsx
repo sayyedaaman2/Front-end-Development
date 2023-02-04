@@ -15,25 +15,21 @@ function Navbar() {
   useEffect(() => {}, [menuBtn]);
   return (
     <>
-      <nav className="relative nav_bg w-screen">
+      <nav className="relative nav_bg ">
         <div className=" mx-2 flex gap-4 justify-between items-center sm:mx-6 md:justify-evenly">
           <div className="w-10 m-2 basis-10">
             <img className="w-full" src={logo} alt="logo-img" />
           </div>
           <div className=" basis-auto font-bold uppercase text-xs sm:text-lg md:basis-1/2">
-            <NavLink
-              to="/"
-              className=""
-            >
+            <NavLink to="/" className="">
               Customer Realtion Management
             </NavLink>
           </div>
-       
+
           <div className={activeMenu}>
             <ul className="md:flex">
               <li className="menu-items">
-                <NavLink to="/signup" 
-                className="menu-href">
+                <NavLink to="/signup" className="menu-href">
                   SignUp
                 </NavLink>
               </li>
@@ -50,17 +46,29 @@ function Navbar() {
             </ul>
           </div>
           <div
-            className="basis-1/12 md:hidden"
+            className="basis-1/12 md:hidden  flex items-center justify-center text-center "
             onClick={toggler}
           >
             {menuBtn ? (
-              <svg xmlns="http://www.w3.org/2000/svg" height="46" width="38">
-                <path d="m12.45 37.65-2.1-2.1L21.9 24 10.35 12.45l2.1-2.1L24 21.9l11.55-11.55 2.1 2.1L26.1 24l11.55 11.55-2.1 2.1L24 26.1Z" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M13.41,12l6.3-6.29a1,1,0,1,0-1.42-1.42L12,10.59,5.71,4.29A1,1,0,0,0,4.29,5.71L10.59,12l-6.3,6.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0L12,13.41l6.29,6.3a1,1,0,0,0,1.42,0,1,1,0,0,0,0-1.42Z" />
               </svg>
             ) : (
-              <svg xmlns="http://www.w3.org/2000/svg" height="46" width="38">
-                <path d="M6 36v-3h36v3Zm0-10.5v-3h36v3ZM6 15v-3h36v3Z" />
+              <div className="h-full w-full flex
+               justify-center item-center"> 
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                >
+                <path
+                  fill="#000"
+                  d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm1 5a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2H4z"
+                  />
               </svg>
+            </div>
             )}
           </div>
         </div>

@@ -4,7 +4,7 @@
 
 
 .menu{
-    @apply hidden  absolute top-full left-0 w-screen translate-x-full transition-all duration-700 ease-in-out md:block md:translate-x-0 md:relative md:w-20 md:basis-48;
+    @apply hidden z-50 absolute top-full left-0 w-screen translate-x-full transition-all duration-700 ease-in-out md:block md:translate-x-0 md:relative md:w-20 md:basis-48;
 }
 
 .menu_active{
@@ -19,4 +19,18 @@
 
 .nav_bg{
     background-image: linear-gradient(to right top, #d16b6b, #dc6b7e, #e46d93, #e871ab, #e778c4, #e177d0, #d978dd, #cd7aeb, #c072ee, #b06bf2, #9e64f7, #885ffb);
+}
+
+
+.row{
+    @apply bg-green-100 h-10 ;
+}
+.label{
+    @apply text-[16px] w-[20%] text-center bg-gradient-to-tr to-slate-500 from-zinc-700 text-white;
+}
+.input-field{
+    @apply bg-green-300 w-[80%];
+}
+.input-box{
+    @apply bg-white ml-4 w-9/12 py-1 px-4  border-gray-500 shadow-md shadow-black;
 }
