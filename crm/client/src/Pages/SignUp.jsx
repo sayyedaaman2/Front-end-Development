@@ -1,74 +1,72 @@
-// import MessageBox from "./MessageBox";
-
-import { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import CustomerPic from "../img/profile-icon.png";
 import EngineerPic from "../img/profileEng-icon.png";
 import constant from "../utils/constant";
 
+import Auth from "../Services/userService";
+import ErrorMsg from "../Components/ErrorMsg";
+
 function SignUp() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [userId, setUserId] = useState("");
-  const [password, setPassword] = useState("");
   const [userType, setUserType] = useState(constant.userType.customer);
 
-  const [nameErr, setNameErr] = useState(false);
-  const [emailErr, setEmailErr] = useState(false);
-  const [userIdErr, setUserIdErr] = useState(false);
-  const [passwordErr, setPasswordErr] = useState(false);
+  useEffect(() => {
+    console.log("updated userType", userType);
+  }, [userType]);
+  const initialValues = {
+    name: "",
+    email: "",
+    userId: "",
+    password: "",
+    userType: userType,
+  };
 
-  function nameHandler(e) {
-    let name = e.target.value;
-    var validNameRegex = new RegExp(/^[a-zA-Z\s]*$/g);
-    if (validNameRegex.test(name)) {
-      // console.log("valid");
-      setNameErr(false);
-    } else {
-      setNameErr(true);
-      // console.log("Invalid");
-    }
-    setName(name);
-  }
+  const onSubmit = async (values, submitProps) => {
+    // console.log("form data", values);
 
-  function emailHandler(e) {
-    let email = e.target.value;
-    var validEmailRegex = new RegExp(
-      /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
-    );
-    if (validEmailRegex.test(email)) {
-      setEmailErr(false);
-    } else {
-      setEmailErr(true);
-    }
-    setEmail(email);
-  }
+    //Post request write here
+    const result = await Auth.signUp(values);
 
-  function userIdHandler(e) {
-    let userId = e.target.value;
-    var validUserIdRegex = new RegExp(/^[a-zA-Z][^\s-]+$/);
-    if (validUserIdRegex.test(userId)) {
-      setUserIdErr(false);
-    } else {
-      setUserIdErr(true);
+    if (result) {
+      if (result.status === 201) {
+        (() => toast.success("Successfully SignUp..."))();
+        return;
+      }
     }
-    setUserId(userId);
-  }
 
-  function passwordHandler(e) {
-    let password = e.target.value;
-    var validPasswordRegex = new RegExp(
-      /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/
-    );
-    //S.Aaman$1234
-    if (validPasswordRegex.test(password)) {
-      setPasswordErr(false);
-    } else {
-      setPasswordErr(true);
+    if (result.response) {
+      if (result.response.status === 400) {
+        (() => toast.error(result.response.data.message))();
+      } else {
+        (() => toast.error(result.response.data.message))();
+      }
     }
-    setPassword(password);
-  }
+  };
+  const validationSchema = Yup.object({
+    name: Yup.string()
+      .required(" Name Required")
+      .matches(/^[a-zA-Z\s]*$/g, `Invaild Name`),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required(" Email Required"),
+    userId: Yup.string()
+      .required("UserId Required")
+      .matches(/^[a-zA-Z][^\s-]+$/, "Invalid UserId !"),
+    password: Yup.string()
+      .required(" Password Required ")
+      .matches(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+        "Invalid password format !"
+      ),
+    userType: Yup.string()
+      .required("Required CUSTOMER | ENGINEER")
+      .oneOf([constant.userType.customer, constant.userType.engineer]),
+  });
 
   function userTypeHandler(e) {
     if (userType === constant.userType.customer) {
@@ -78,38 +76,17 @@ function SignUp() {
     }
   }
 
-  function SubmitData(e) {
-    e.preventDefault();
-    // const body = {
-    //     name,
-    //     email,
-    //     password,
-    //     userId,
-    //     userType
-    // }
-    if (
-      !nameErr &&
-      !userIdErr &&
-      !emailErr &&
-      !passwordErr &&
-      userId &&
-      password &&
-      email &&
-      name &&
-      userType === constant.userType.customer
-    ) {
-      //Post request write here
-
-      alert("Successfuly Register");
-    } else {
-      alert("Fill the information");
-    }
-  }
   return (
     <>
-      <div className="h-screen bg-slate-400 block">
-        <div className="border-2 border-white w-11/12 mx-auto">
-          <div className="bg-white w-[50%] border-2 border-slate-800 rounded-full  mx-auto my-9 transcplate ">
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+        enableReinitialize={true}
+        className="h-screen bg-yellow-100 shadow-slate-500 shadow-inner block box-border"
+      >
+        <div className="border-2  mx-auto box-border">
+          <div className="bg-white w-[10rem] border-2 border-slate-800 rounded-full  mx-auto my-9 transcplate ">
             {userType === constant.userType.customer ? (
               <img className="w-44" src={CustomerPic} alt="customer-pic" />
             ) : (
@@ -117,140 +94,98 @@ function SignUp() {
             )}
           </div>
 
-          <div className="border-2 border-gray-900 rounded-lg bg-cyan-200">
-            <form
-              className="w-[95%] mx-auto text-center mt-2 bg-zinc-400 p-4"
-              onSubmit={SubmitData}
-            >
-              <table className="w-full">
+          <div className=" w-full left-0 translate-x-0  border-2 border-gray-400 rounded-lg bg-cyan-200  sm:w-[50%] sm:relative sm:left-1/2 sm:-translate-x-1/2">
+            <Form className="w-[95%] mx-auto text-center mt-2 bg-zinc-400 rounded-sm p-2">
+              <table className="w-full ">
                 <tbody>
                   <tr className="row">
                     <td className="label">Name</td>
                     <td className="input-field" maxLength="10">
-                      <input
-                        className="input-box"
+                      <Field
                         type="text"
+                        className="input-box"
                         name="name"
-                        placeholder="Enter Your Name"
-                        autoComplete="off"
-                        onChange={nameHandler}
+                        placeholder="Enter your name"
                       />
-                      <div className="inline ml-3">
-                        {name !== "" ? (
-                          nameErr ? (
-                            <span className="falseMark">&#215;</span>
-                          ) : (
-                            <span className="trueMark">&#10003;</span>
-                          )
-                        ) : (
-                          <span> </span>
-                        )}
-                      </div>
+
+                      <ErrorMessage name="name" component={ErrorMsg} />
                     </td>
                   </tr>
                   <tr className="row">
                     <td className="label">Email</td>
                     <td className="input-field" maxLength="20">
-                      <input
+                      <Field
+                        type="email"
                         className="input-box"
-                        type="text"
                         name="email"
-                        placeholder="Enter Your Email"
-                        autoComplete="off"
-                        onChange={emailHandler}
+                        placeholder="Enter your email"
                       />
-                      <div className="errorIcon">
-                        {email !== "" ? (
-                          emailErr ? (
-                            <span className="falseMark">&#215;</span>
-                          ) : (
-                            <span className="trueMark">&#10003;</span>
-                          )
-                        ) : (
-                          <span> </span>
-                        )}
-                      </div>
+                      <ErrorMessage name="email" component={ErrorMsg} />
                     </td>
                   </tr>
                   <tr className="row">
                     <td className="label">UserId</td>
                     <td className="input-field" maxLength="10">
-                      <input
-                        className="input-box"
+                      <Field
                         type="text"
+                        className="input-box"
                         name="userId"
-                        placeholder="Enter Your UserId"
-                        autoComplete="off"
-                        onChange={userIdHandler}
+                        placeholder="Enter your userId"
                       />
-                      <div className="errorIcon">
-                        {userId !== "" ? (
-                          userIdErr ? (
-                            <span className="falseMark">&#215;</span>
-                          ) : (
-                            <span className="trueMark">&#10003;</span>
-                          )
-                        ) : (
-                          <span> </span>
-                        )}
-                      </div>
+                      <ErrorMessage name="userId" component={ErrorMsg} />
                     </td>
                   </tr>
                   <tr className="row">
                     <td className="label">Password</td>
                     <td className="input-field" maxLength="20">
-                      <input
+                      <Field
+                        type="password"
                         className="input-box"
-                        type="text"
                         name="password"
-                        placeholder="Enter Your Password"
-                        autoComplete="off"
-                        onChange={passwordHandler}
+                        placeholder="Enter your password"
                       />
-                      <div className="errorIcon">
-                        {password !== "" ? (
-                          passwordErr ? (
-                            <span className="falseMark">&#215;</span>
-                          ) : (
-                            <span className="trueMark">&#10003;</span>
-                          )
-                        ) : (
-                          <span> </span>
-                        )}
-                      </div>
+                      <ErrorMessage name="password" component={ErrorMsg} />
                     </td>
                   </tr>
                 </tbody>
               </table>
               <br />
-              <button className="bg-gradient-to-b from-teal-100  to-teal-400 h-12 w-20 border-2 border-black shadow-black shadow-md rounded-lg hover:bg-black hover:text-white" type="submit" >
+              <ErrorMessage name="userType" component={ErrorMsg} />
+              <button
+                className="bg-gradient-to-b from-teal-100  to-teal-400 h-10 w-20 border-2 border-black shadow-black shadow-md rounded-lg hover:bg-black hover:text-white"
+                type="submit"
+              >
                 Submit
               </button>
-            </form>
-            <div className="Login-section">
-              <Link to="/login" className="login-href">
-                I have already Account
-              </Link>
-
-              {userType === constant.userType.customer ? (
-                <button
-                  className="login-href"
-                  onClick={() => userTypeHandler()}
-                >
-                  SignUp as Engineer
-                </button>
-              ) : (
-                <button
-                  className="login-href"
-                  onClick={() => userTypeHandler()}
-                >
-                  SignUp as Customer
-                </button>
-              )}
+            </Form>
+            <div className=" mx-3 mb-5 h-12 grid grid-cols-2 text-center bg-pink-200 rounded-bl-md rounded-br-md text-sm ">
+              <div className="grid items-center hover:text-blue-700">
+                <Link to="/login" className="login-href">
+                  I have already Account
+                </Link>
+              </div>
+              <div className="grid items-center hover:text-blue-700">
+                {userType === constant.userType.customer ? (
+                  <button
+                    className="login-href"
+                    onClick={() => userTypeHandler()}
+                  >
+                    SignUp as Engineer
+                  </button>
+                ) : (
+                  <button
+                    className="login-href"
+                    onClick={() => userTypeHandler()}
+                  >
+                    SignUp as Customer
+                  </button>
+                )}
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </Formik>
+      <ToastContainer theme="dark" />
     </>
   );
 }

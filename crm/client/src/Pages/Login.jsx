@@ -1,97 +1,122 @@
-import loginPic from '../img/login-icon.png';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import * as Yup from "yup";
+import React from "react";
+import { Link } from "react-router-dom";
 
+import LoginPic from "../img/login-icon.png";
 
-import React, { useState } from "react";
-import { Link } from 'react-router-dom'
+import Auth from "../Services/userService";
+import ErrorMsg from "../Components/ErrorMsg";
 
 function Login() {
 
-    const [userId, setUserId] = useState("");
-    const [password, setPassword] = useState("");
+  const initialValues = {
+    userId: "",
+    password: "",
+  };
 
-    const [userIdErr, setUserIdErr] = useState(false);
-    const [passwordErr, setPasswordErr] = useState(false);
+  const onSubmit = async (values, submitProps) => {
+    // console.log("form data", values);
 
-    //userId handler
-    function userIdHandler(e) {
-        let userId = e.target.value;
-        console.log("userId", userId)
-
-        var validUserIdRegex = new RegExp(/^[a-zA-Z][^\s-]+$/);
-        if (validUserIdRegex.test(userId)) {
-            setUserIdErr(false);
-        } else {
-            setUserIdErr(true);
-        }
-        setUserId(userId);
+    //Post request write here
+    const result = await Auth.login(values);
+    console.log("result ",result)
+    if (result) {
+      if (result.status === 200) {
+        console.log(result);
+        (() => toast.success("Successfully Login..."))();
+        return;
+      }
     }
 
-    function passwordHandler(e) {
-        let password = e.target.value;
-        console.log("password", password)
-        var validPasswordRegex = new RegExp(/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/);
-        //S.Aaman$1234
-        if (validPasswordRegex.test(password)) {
-            setPasswordErr(false);
-        } else {
-            setPasswordErr(true);
-        }
-        setPassword(password);
+    if (result.response) {
+      if (result.response.status === 400) {
+        (() => toast.error(result.response.data.message))();
+      } else {
+        (() => toast.error(result.response.data.message))();
+      }
     }
-    function SubmitData(e) {
-        e.preventDefault();
+  };
+  const validationSchema = Yup.object({
+    userId: Yup.string()
+      .required("UserId Required")
+      .matches(/^[a-zA-Z][^\s-]+$/, "Invalid UserId !"),
+    password: Yup.string()
+      .required(" Password Required ")
+      .matches(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/,
+        "Invalid password format !"
+      ),
+  });
 
-        if (!userIdErr && !passwordErr && userId && password) {
-            //Post request write here
-            alert("Successfuly Login")
-        } else {
-            alert("Fill the information")
-        }
-    }
+  return (
+    <>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+        enableReinitialize={true}
+        className="h-screen bg-yellow-100 shadow-slate-500 shadow-inner block box-border"
+      >
+        <div className="border-2  mx-auto box-border">
+          <div className="bg-gradient-to-tr from-lime-100 to-teal-400 w-[10rem]  border-2 border-slate-800 rounded-full  mx-auto my-9 transcplate  ">
+            <img className="w-40 " src={LoginPic} alt="customer-pic" />
+          </div>
 
-    return (
-        <>
-            <div id='login-container'>
-                <div id='login-pic-section'>
-                    <img id='login-logo' src={loginPic} alt="login-pic" />
-                </div>
-                <div id='login-form-section'>
-                    <form id='login-form' onSubmit={SubmitData} >
-                        <table>
-                            <tbody>
-                                <tr className='row'>
-                                    <td className='label'>
-                                        UserId
-                                    </td>
-                                    <td className='input-field'>
-                                        <input type="text" name='userId' placeholder='Enter your UserId' autoComplete='off' onChange={userIdHandler} />
-                                        <div className="errorIcon">{userId !== "" ? userIdErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
-                                    </td>
-                                </tr>
-                                <tr className='row'>
-                                    <td className='label'>
-                                        Password
-                                    </td>
-                                    <td className='input-field'>
-                                        <input type="text" name='password' placeholder='Enter your Password' autoComplete='off' onChange={passwordHandler} />
-                                        <div className="errorIcon">{password !== "" ? passwordErr ? <span className="falseMark">&#215;</span> : <span className="trueMark">&#10003;</span> : <span> </span>}</div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br />
-                        <button type="submit" id="submit-btn">Submit</button>
-                    </form>
-                    <div id="signup-section">
-
-                        <Link to="/signup" className='signup-href' value="SignUp">SignUp</Link>
-
-                    </div>
-                </div>
-
+          <div className=" w-full left-0 translate-x-0  border-2 border-gray-400 rounded-lg bg-cyan-200  sm:w-[50%] sm:relative sm:left-1/2 sm:-translate-x-1/2">
+            <Form className="w-[95%] mx-auto text-center mt-2 bg-zinc-400 rounded-sm p-2">
+              <table className="w-full ">
+                <tbody>
+                  <tr className="row">
+                    <td className="label">UserId</td>
+                    <td className="input-field" maxLength="10">
+                      <Field
+                        type="text"
+                        className="input-box"
+                        name="userId"
+                        placeholder="Enter your userId"
+                      />
+                      <ErrorMessage name="userId" component={ErrorMsg} />
+                    </td>
+                  </tr>
+                  <tr className="row">
+                    <td className="label">Password</td>
+                    <td className="input-field" maxLength="20">
+                      <Field
+                        type="password"
+                        className="input-box"
+                        name="password"
+                        placeholder="Enter your password"
+                      />
+                      <ErrorMessage name="password" component={ErrorMsg} />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <br />
+              <ErrorMessage name="userType" component={ErrorMsg} />
+              <button
+                className="bg-gradient-to-b from-teal-100  to-teal-400 h-10 w-20 border-2 border-black shadow-black shadow-md rounded-lg hover:bg-black hover:text-white"
+                type="submit"
+              >
+                Submit
+              </button>
+            </Form>
+            <div className=" mx-3 mb-5 h-12 grid grid-cols-1 text-center bg-pink-200 rounded-bl-md rounded-br-md text-sm ">
+              <div className="grid items-center hover:text-blue-700">
+                <Link to="/signup" className="login-href">
+                  Create a Account
+                </Link>
+              </div>
             </div>
-        </>
-    )
+          </div>
+        </div>
+      </Formik>
+      <ToastContainer theme="dark" />
+    </>
+  );
 }
 
 export default Login;

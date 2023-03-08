@@ -23,14 +23,14 @@
 
 
 .row{
-    @apply bg-green-100 h-10 ;
+    @apply h-4 leading-3 sm:leading-6 md:leading-8 flex-auto ;
 }
 .label{
-    @apply text-[16px] w-[20%] text-center bg-gradient-to-tr to-slate-500 from-zinc-700 text-white;
+    @apply text-sm w-14 sm:w-[20%]  text-center bg-gradient-to-tr to-slate-500 from-zinc-700 text-white rounded-lg ;
 }
 .input-field{
-    @apply bg-green-300 w-[80%];
+    @apply   flex justify-between ml-1 sm:ml-5  rounded-xl ;
 }
 .input-box{
-    @apply bg-white ml-4 w-9/12 py-1 px-4  border-gray-500 shadow-md shadow-black;
+    @apply bg-white  py-1 px-4 border-gray-500 shadow-md shadow-black rounded-xl text-sm sm:text-lg placeholder:text-sm;
 }
